@@ -8,7 +8,6 @@ from sklearn.datasets import load_iris
 
 
 def plot_data():
-
     ###### q1
     df = combine_data()
     data = df.groupby('ClassName')
@@ -53,7 +52,7 @@ def getpca(df):
     pca = PCA(n_components=3)
     pca.fit(df_zscore)
     df_pca = pandas.DataFrame(pca.components_)
-    print df_pca.corr(method='pearson')
+    print(df_pca.corr(method='pearson'))
     print(pca.explained_variance_ratio_)
 
 
@@ -95,6 +94,7 @@ def combine_data():
     df1.drop(df1.columns[cols], axis=1, inplace=True)
     df2.drop(df2.columns[cols], axis=1, inplace=True)
     return pandas.concat([df1, df2])
+
 
 if __name__ == "__main__":
     plot_data()
